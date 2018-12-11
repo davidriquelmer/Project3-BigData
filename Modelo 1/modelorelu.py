@@ -90,9 +90,10 @@ df = pd.DataFrame(np.array(salida))
 df.columns = ['Post', 'Tag']
 df.to_csv("tag.csv")
 
-df = spark.read.format("com.databricks.spark.csv").option("header", "true").load("tag.csv")
-df.createOrReplaceTempView("red")
-labels = spark.sql("select label, count(*) from red group by label order by label desc")
-labels.show()
-labels.write.csv('conteo1.csv')
+#Correr en spark
+#df = spark.read.format("com.databricks.spark.csv").option("header", "true").load("tag.csv")
+#df.createOrReplaceTempView("red")
+#labels = spark.sql("select label, count(*) from red group by label order by label desc")
+#labels.show()
+#labels.write.csv('conteo1.csv')
 	
